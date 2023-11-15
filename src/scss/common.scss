@@ -1,0 +1,27 @@
+// Заголовки, общие БЄМ блоки и проче...
+.page {
+	// .page__hero
+	&__hero {
+		@include adaptiveValue("padding-bottom", 100, 60);
+	}
+	// .page__reality
+	&__reality {
+		@include adaptiveValue("padding-bottom", 100, 60);
+	}
+	// .page__we
+	&__we {
+		@include adaptiveValue("padding-bottom", 100, 60);
+	}
+	// .page__help
+	&__help {
+		@include adaptiveValue("padding-bottom", 100, 60);
+	}
+	// .page__experience
+	&__experience {
+		@include adaptiveValue("padding-bottom", 100, 60);
+	}
+	// .page__our
+	&__our {
+		@include adaptiveValue("padding-bottom", 100, 60);
+	}
+}
