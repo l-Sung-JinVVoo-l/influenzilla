@@ -2,12 +2,13 @@
 .page {
 	// .page__hero
 	&__hero {
-		padding-top: toRem(60);
-		@include adaptiveValue("padding-bottom", 100, 60);
+		@include adaptiveValue("padding-top", 407, 163);
+		// @include adaptiveValue("padding-bottom", 100, 60);
 	}
 	// .page__reality
 	&__reality {
-		@include adaptiveValue("padding-bottom", 100, 60);
+		@include adaptiveValue("padding-top", 100, 60);
+		@include adaptiveValue("padding-bottom", 185, 85);
 	}
 	// .page__we
 	&__we {
@@ -35,32 +36,36 @@
 	-webkit-text-fill-color: transparent;
 }
 
-//================================
+//=============================================================================
+
 /* 
 <div class="ИМЯ РОДОКА__titles titles !titles--decor !titles--decor-t !titles--decor-b">
 	<div class="titles__title">
-		<h2>Influence your <br> audience</h2>
+		<h2 class="titles__style">Influence your <br> audience</h2>
 	</div>
 </div>
 */
 /* Titles */
 .titles {
-	margin-bottom: toRem(50);
-	font-family: Unbounded;
-	//! РОДИТЕЛЮ ФОНТ САЙЗ НАДО!!!!!!!!!!!!!!!!!
-	@include adaptiveValue("font-size", 54, 32);
 	font-weight: 300;
-	line-height: 125%;
-	@extend %grad-color;
+	font-family: Unbounded;
+	&__title {
+		@extend %grad-color;
+	}
+	&__text {
+		color: #fff;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 130%;
+	}
 	// .titles--decor
 	&--decor {
 		display: inline-block;
 		position: relative;
-		// background-color: #fff;
-	
 	}
 	// .titles--decor-t
 	&--decor-t {
+		// position: relative;
 		&::before {
 			@extend %grad-color;
 			content: "˜˜˜˜˜˜˜˜˜˜";
@@ -76,24 +81,22 @@
 	// .titles--decor-b
 	&--decor-b {
 		&::after {
+			@extend %grad-color;
 			content: "˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜˜";
 			position: absolute;
 			bottom: 0;
-			left: 0;
+			left: 0%;
 			font-family: Unbounded;
 			@include adaptiveValue("font-size", 48, 32);
 			font-weight: 300;
 			@include adaptiveValue("letter-spacing", -9.6, -7);
-			@extend %grad-color;
 			transform: translate(0px, 85%);
 		}
 	}
 	// .titles__title
-	&__title {
-	}
 }
 
-//================================
+//=============================================================================
 /* textles */
 /* 
 <div class="ИМЯ РОДОКА__textles textles">
@@ -128,6 +131,49 @@
 	p {
 		&:not(:last-child) {
 			margin-bottom: toRem(18);
+		}
+	}
+}
+//=============================================================================
+/*
+<div class="hero__subtitles subtitles">
+	<div class="subtitles__item subtitles__item--1 subtitles__item--col">
+		<p>2023</p>
+	</div>
+	<div class="subtitles__item subtitles__item--txt subtitles__item--col">
+		<p>hi there, let's get started!</p>
+	</div>
+</div>
+*/
+// .hero {
+// 	// .hero__subtitles
+// 	&__subtitles {
+// 		@include adaptiveValue("gap", 25, 9);
+// 		@media (max-width:$mobileSmall){
+// 			justify-content: end;
+// 		}
+// 	}
+// }
+
+.subtitles {
+	display: flex;
+	align-items: center;
+	// .subtitles__item
+	&__item {
+		font-size: 12px;
+		font-weight: 400;
+
+		&--1 {
+			font-family: Unbounded;
+			@include adaptiveValue("font-size", 27, 32);
+			font-weight: 250;
+			line-height: 130%;
+		}
+		&--txt {
+			max-width: toRem(82);
+		}
+		&--col {
+			@extend %grad-color;
 		}
 	}
 }

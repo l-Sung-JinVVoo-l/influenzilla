@@ -1,11 +1,51 @@
+@-webkit-keyframes color-change-2x {
+	0% {
+		background: hsla(322, 41%, 36%, 0.2);
+	}
+	25% {
+		background: hsla(267, 35%, 32%, 0.3);
+	}
+	50% {
+		background: hsla(353, 51%, 14%, 0.403);
+	}
+	75% {
+		background: hsla(267, 35%, 32%, 0.6);
+	}
+	100% {
+		background: hsla(242, 25%, 25%, 0.3);
+	}
+}
+@keyframes color-change-2x {
+	0% {
+		background: hsla(322, 41%, 36%, 0.2);
+	}
+	25% {
+		background: hsla(157, 52%, 14%, 0.403);
+	}
+	50% {
+		background: hsla(267, 35%, 32%, 0.3);
+	}
+	75% {
+		background: hsla(294, 25%, 25%, 0.3);
+	}
+	100% {
+		background: hsla(12, 35%, 32%, 0.6);
+	}
+}
+
 //====================================================================================================
 .header {
-	position: fixed;
+	// position: fixed;
+	position: absolute;
 	top: 0px;
 	left: 0px;
 	width: 100%;
-	height: 100%;
 	z-index: 2;
+	transition: all 0.3s;
+	&._header-scroll {
+		background: #000000c8;
+	}
+
 	// .header__container
 	&__container {
 		@include adaptiveValue("padding-top", 48, 30);
@@ -13,6 +53,11 @@
 		display: grid;
 		grid-template-columns: minmax(300px, 432px) 1fr;
 		@include adaptiveValue("grid-template-rows", 134, 60);
+		transition: all 0.3s;
+		._header-scroll & {
+			@include adaptiveValue("padding-top", 28, 20);
+			@include adaptiveValue("padding-bottom", 28, 20);
+		}
 		@media (max-width: $mobile) {
 			grid-template-columns: 2fr 1fr;
 			&::after {
@@ -20,11 +65,14 @@
 				content: "";
 				position: fixed;
 				width: 100%;
-				@include adaptiveValue("height", 220, 120);
+				@include adaptiveValue("height", 216, 117);
 				top: 0px;
 				left: 100%;
 				z-index: 2;
 				background: url("@img/hero/bg-hero.jpg") center / cover no-repeat;
+				._header-scroll & {
+					@include adaptiveValue("height", 195, 108);
+				}
 			}
 			.menu-open & {
 				&::after {
@@ -36,7 +84,8 @@
 	}
 	// .header__logo
 	&__logo {
-		border: 2px solid #fff;
+		outline: 2px solid #fff;
+
 		display: flex;
 		align-items: center;
 		justify-content: space-evenly;
@@ -45,7 +94,7 @@
 	}
 	// .header__menu
 	&__menu {
-		border: 2px solid #fff;
+		outline: 2px solid #fff;
 	}
 }
 .logo {
@@ -67,7 +116,7 @@
 	// .logo__link
 	&__link {
 		text-align: center;
-		max-width: toRem(135);
+		max-width: toRem(155);
 		display: grid;
 		position: relative;
 		z-index: 100;
@@ -101,6 +150,9 @@
 			height: 100%;
 			z-index: 2;
 			opacity: 0;
+			._header-scroll & {
+				@include adaptiveValue("padding-top", 200, 110);
+			}
 		}
 		.menu-open & {
 			opacity: 1;
@@ -139,11 +191,14 @@
 	}
 	// .menu__item
 	&__item {
-		border: 2px solid #fff;
+		outline: 2px solid #fff;
 		display: grid;
 		@media (max-width: $mobile) {
 			padding: 20px;
-			background-color: rgba(54, 5, 33, 0.493);
+			// background-color: rgba(54, 5, 33, 0.493);
+			.menu-open & {
+				animation: color-change-2x 6s linear infinite alternate both;
+			}
 		}
 	}
 	// .menu__link
