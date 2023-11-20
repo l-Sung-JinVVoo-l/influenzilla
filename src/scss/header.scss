@@ -35,8 +35,8 @@
 
 //====================================================================================================
 .header {
-	// position: fixed;
-	position: absolute;
+	position: fixed;
+	// position: absolute;
 	top: 0px;
 	left: 0px;
 	width: 100%;
@@ -44,6 +44,11 @@
 	transition: all 0.3s;
 	&._header-scroll {
 		background: #000000c8;
+	}
+	&.hidden{
+		transform: translate(0px,-100%);
+		scale: .8 ;
+		opacity: 0;
 	}
 
 	// .header__container

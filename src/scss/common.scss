@@ -1,3 +1,11 @@
+$test-bg1: #741a5280; // для работы с блоками - для отображения
+$test-bg2: #4a1a7480; // для работы с блоками - для отображения
+$test-bg3: #1a447480; // для работы с блоками - для отображения
+$test-bg4: #6a741a6b; // для работы с блоками - для отображения
+$test-bg5: #74271a80; // для работы с блоками - для отображения
+
+
+
 // Заголовки, общие БЄМ блоки и проче...
 .page {
 	// .page__hero
@@ -16,15 +24,16 @@
 	}
 	// .page__help
 	&__help {
-		@include adaptiveValue("padding-bottom", 100, 60);
+		@include adaptiveValue("padding-bottom", 120, 85);
 	}
 	// .page__experience
 	&__experience {
-		@include adaptiveValue("padding-bottom", 100, 60);
+		padding-bottom: toRem(65);
 	}
 	// .page__our
 	&__our {
 		@include adaptiveValue("padding-bottom", 100, 60);
+		@include adaptiveValue("padding-top", 130, 100);
 	}
 }
 //================================
@@ -122,8 +131,19 @@
 	// line-height: normal;
 	line-height: 17px;
 	max-width: toRem(432);
+	&--dn{
+		@media (max-width:$mobile){
+			 display: none; 
+		}
+	}
 	&--nr {
 		max-width: toRem(373);
+	}
+	&--276 {
+		max-width: toRem(276);
+	}
+	&--170 {
+		max-width: toRem(175);
 	}
 	&--sm {
 		max-width: toRem(216);
@@ -175,5 +195,11 @@
 		&--col {
 			@extend %grad-color;
 		}
+		&--dn {
+			@media (max-width:$mobile){
+				 display: none; 
+			}
+		}
+
 	}
 }

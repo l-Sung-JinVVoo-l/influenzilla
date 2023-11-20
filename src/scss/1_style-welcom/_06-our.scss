@@ -1,3 +1,26 @@
 //=============================================
+.our {
+	// .our__container
+	&__container {
+		display: flex;
+		gap: toRem(26);
+		@media (max-width:$mobile){
+			 flex-direction: column;
+
+		}
+	}
+	// .our__decor-star
+	&__decor-star {
+		display: flex;
+		flex: 1;
+		font-size: toRem(28);
+	}
+	// .our__textles
+	&__textles {
+		gap: toRem(50);
+		display: flex;
+	}
+}
+
 
 //=============================================

@@ -1,3 +1,208 @@
 //=============================================
+.page {
+	// .page__help
+	&__help {
+	}
+}
+.help {
+	// .help__container
+	&__container {
+		display: flex;
+		flex-direction: column;
+		gap: toRem(20);
+	}
+	// .help__titles
+	&__titles {
+		@include adaptiveValue("font-size", 54, 32);
+		align-self: start;
+		@include adaptiveValue("max-width", 780, 310);
+		padding-bottom: toRem(12);
+		&::before {
+			transform: translate(-50%,0px);
 
+			@media (max-width: $mobile) {
+				display: none;
+			}
+		}
+		&::after {
+			display: none;
+			@media (max-width: $mobile) {
+				display: block;
+			}
+		}
+	}
+	// .help__body
+	&__body {
+		display: flex;
+		flex-direction: column;
+	}
+	//******************************
+	.titles {
+		// background: $test-bg2;
+		// .titles--decor
+		&--decor {
+		}
+		// .titles--decor-t
+		&--decor-t {
+		}
+		// .titles--decor-b
+		&--decor-b {
+		}
+		// .titles__title
+		&__title {
+		}
+		// .titles__style
+		&__style {
+		}
+	}
+	.body-help {
+		// background: $test-bg1;
+		gap: toRem(30);
+		// .body-help__top
+		&__top {
+			flex-direction: column;
+			display: flex;
+		}
+		// .body-help__subtitles
+		&__subtitles {
+			margin-bottom: toRem(20);
+			// background: $test-bg3;
+			align-self: start;
+			@media (max-width:$mobile){
+				 margin-bottom: 0; 
+			}
+		}
+		// .body-help__textles
+		&__textles {
+			align-self: end;
+			// background: $test-bg4;
+			gap: toRem(110);
+		}
+		// .body-help__mid
+		&__mid {
+		
+		}
+		// .body-help__row
+		&__row {
+			display: flex;
+			justify-content: end;
+			@media (max-width:$mobile){
+				 flex-direction: column; 
+			}
+		}
+		// .body-help__column
+		&__column {
+		}
+		// .body-help__bot
+		&__bot {
+		}
+		// .body-help__decor
+		&__decor {
+			
+		}
+	}
+	.bot-help {
+		display: flex;
+		@media (max-width:$mobile){
+			 display: inline-block;
+		}
+		// background-color: #992626a7;
+		// .bot-help__decor
+		&__decor {
+			flex: 0 1;
+			font-size: toRem(26);
+			@include adaptiveValue("flex-basis", 335, 30, 0, 1290, 767.98);
+			@media (max-width:$mobile){
+				 margin-bottom: toRem(20); 
+			}
+		}
+		// .bot-help__textles
+		&__textles {
+			align-self: stretch;
+		}
+	}
+	.subtitles {
+		// .subtitles__item
+		&__item {
+			// .subtitles__item--txt
+			&--txt {
+			}
+			// .subtitles__item--col
+			&--col {
+			}
+		}
+	}
+	.textles {
+		// background: $test-bg3;
+		// .textles__item
+		&__item {
+		}
+	}
+	.column-body {
+		display: flex;
+		flex-direction: column;
+		// margin-bottom: toRem(35);
+		min-width: toRem(305);
+		@media (max-width: $tablet) {
+			min-width: auto;
+		}
+		// .column-body__head
+		&__head {
+			outline: 2px solid #fff;
+
+			padding: toRem(25) toRem(50);
+
+			@include adaptiveValue("padding-left", 50, 10, 2, 1250, 767.98);
+			@include adaptiveValue("padding-top", 25, 20, 2, 1250, 767.98);
+			@include adaptiveValue("padding-bottom", 25, 20, 2, 1250, 767.98);
+			@include adaptiveValue("padding-right", 50, 10, 2, 1250, 767.98);
+
+			@media (max-width:$mobile){
+				 padding: toRem(30); 
+			}
+		}
+
+		// .column-body__head
+		&__image {
+			img {
+				width: toRem(48);
+				&:not(:first-child) {
+					margin-left: -12px;
+				}
+			}
+		}
+
+		// .column-body__content
+		&__content {
+			flex: 1 1 auto;
+			outline: 2px solid #fff;
+
+			display: flex;
+			flex-direction: column;
+			@include adaptiveValue("padding-left", 51, 10, 2, 1250, 767.98);
+			@include adaptiveValue("padding-top", 47, 15, 2, 1250, 767.98);
+			@include adaptiveValue("padding-bottom", 47, 15, 2, 1250, 767.98);
+			@include adaptiveValue("padding-right", 51, 10, 2, 1250, 767.98);
+
+			@media (max-width:$mobile){
+				 padding: toRem(30); 
+			}
+			max-width: toRem(306);
+			gap: toRem(20);
+			@media (max-width:$mobile){
+				 max-width: 100%; 
+			}
+		}
+		// .column-body__titles
+		&__titles {
+			@include adaptiveValue("font-size", 30, 32);
+			line-height: 120%;
+		}
+		// .column-body__textles
+		&__textles {
+			line-height: 120%;
+			flex: 1 1 auto;
+		}
+	}
+}
 //=============================================

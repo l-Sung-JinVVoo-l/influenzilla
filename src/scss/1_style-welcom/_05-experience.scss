@@ -1,3 +1,66 @@
 //=============================================
+.experience {
+	background: url("@img/experience/bg.jpg") 28% 0 / cover no-repeat;
+	// .experience__container
+	&__container {
+		@include adaptiveValue("padding-top", 85, 50);
+		display: flex;
+		flex-direction: column;
+		@include adaptiveValue("gap", 312, 50);
+	}
+	// .experience__top
+	&__top {
+		display: flex;
+		justify-content: space-between;
+	}
+	// .experience__bot
+	&__bot {
+		display: flex;
+		justify-content: space-between;
+		align-items: end;
+		column-gap: toRem(20);
+		row-gap: toRem(40);
+		@media (max-width: $mobile) {
+			flex-direction: column;
+			align-items: start;
+		}
+	}
+}
+.top-experience {
+	// .top-experience__subtitles
+	&__subtitles {
+		// padding-right: toRem(108);
+		@include adaptiveValue("padding-right", 108, 70);
+		display: flex;
+		gap: toRem(100);
+		line-height: 120%;
+	}
+}
+.bot-experience {
+	// .bot-experience__titles
+	&__titles {
+		line-height: 120%;
+		@include adaptiveValue("font-size", 54, 32);
+		padding-bottom: toRem(12);
+		&::before {
+			@media (max-width: $mobile) {
+				display: none;
+			}
+		}
+		&::after {
+			display: none;
+			@media (max-width: $mobile) {
+				display: block;
+			}
+		}
+	}
+	// .bot-experience__textles
+	&__textles {
+		@include adaptiveValue("max-width", 350, 250);
+		p {
+			@extend %grad-color;
+		}
+	}
+}
 
 //=============================================
