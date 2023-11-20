@@ -7,7 +7,7 @@
 .hero {
 	background: url("@img/hero/bg-hero.jpg") center / cover no-repeat;
 	@media (max-width: em(600)) {
-		background: url("@img/hero/bg-hero.jpg") 0% 0% / cover no-repeat;
+		background: #000 url("@img/hero/bg-hero.jpg") 15% 0% / cover no-repeat;
 	}
 	// .hero__container
 	&__container {
@@ -21,7 +21,6 @@
 	}
 	// .hero__subtitles
 	&__subtitles {
-		text-shadow: 3px 2px 6px #00000062;
 		@include adaptiveValue("margin-bottom", 58, 56);
 		@include adaptiveValue("gap", 25, 9);
 		@media (max-width: em(600)) {
@@ -110,7 +109,7 @@
 			justify-content: space-between;
 			row-gap: toRem(38);
 			// @include adaptiveValue("column-gap", 95, 470, 1290, 767.98);
-			@media (max-width:$mobile){
+			@media (max-width: $mobile) {
 				flex-wrap: wrap;
 				// justify-content: space-around;
 			}
