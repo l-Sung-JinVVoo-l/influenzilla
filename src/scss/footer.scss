@@ -1,9 +1,16 @@
 //====================================================================================================
 
 .footer {
+	overflow: hidden;
 	@include adaptiveValue("margin-bottom", 60, 33);
+	&._watcher-view {
+		.footer__container {
+			animation: scale-in-ver-to-bot-footer 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.4s both;
+		}
+	}
 	// .footer__container
 	&__container {
+		opacity: 0;
 		display: flex;
 		@media (max-width: $mobile) {
 			flex-direction: column;
@@ -17,7 +24,7 @@
 		gap: toRem(10);
 		justify-content: space-evenly;
 		flex: 0 1 432px;
-		outline: 2px solid #fff;
+		border: 2px solid #fff;
 		@media (max-width: $mobile) {
 			border-bottom-color: transparent;
 			padding: toRem(10) toRem(10);
@@ -26,7 +33,7 @@
 	}
 	// .footer__action
 	&__action {
-		outline: 2px solid #fff;
+		// outline: 2px solid #fff;
 		flex: 1 1 auto;
 		@media (max-width: $mobile) {
 			flex: 0 1 60px;
@@ -93,7 +100,7 @@
 	// .action-foot__item
 	&__item {
 		display: grid;
-		outline: 2px solid #fff;
+		border: 2px solid #fff;
 		font-size: 12px;
 		font-weight: 500;
 		@extend %grad-color;

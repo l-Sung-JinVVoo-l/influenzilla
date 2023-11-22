@@ -1,6 +1,47 @@
 //=============================================
 .experience {
-	background: url("@img/experience/bg.jpg") 28% 0 / cover no-repeat;
+	position: relative;
+	&__bg {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 50%;
+		transform: translate(0px, -50%);
+		left: 0;
+		z-index: -1;
+		opacity: 0;
+		img {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			object-fit: cover;
+			object-position: 28% 0%;
+		}
+	}
+	&._watcher-view {
+		.experience__bg {
+			animation: scale-up-ver-center 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) 0.8s both;
+		}
+		.top-experience__subtitles {
+			animation: fade-in-left 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) 1.7s both;
+		}
+		.top-experience__subtitles--left {
+			animation: fade-in-left 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) 1.4s both;
+		}
+		.bot-experience__titles {
+			animation-delay: 1.1s;
+			&::before {
+				animation-delay: 1.3s;
+			}
+		}
+		.bot-experience__textles {
+			.textles__item {
+				animation-delay: 2.1s;
+			}
+		}
+	}
 	// .experience__container
 	&__container {
 		@include adaptiveValue("padding-top", 85, 50);
@@ -29,6 +70,7 @@
 .top-experience {
 	// .top-experience__subtitles
 	&__subtitles {
+		opacity: 0;
 		// padding-right: toRem(108);
 		@include adaptiveValue("padding-right", 108, 70);
 		display: flex;
@@ -39,6 +81,8 @@
 .bot-experience {
 	// .bot-experience__titles
 	&__titles {
+		opacity: 0;
+
 		line-height: 120%;
 		@include adaptiveValue("font-size", 54, 32);
 		padding-bottom: toRem(12);
@@ -57,6 +101,9 @@
 	// .bot-experience__textles
 	&__textles {
 		@include adaptiveValue("max-width", 350, 250);
+		.textles__item {
+			opacity: 0;
+		}
 		p {
 			@extend %grad-color;
 		}

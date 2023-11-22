@@ -1,11 +1,26 @@
 //=============================================
-.page {
-	// .page__hero
-	&__hero {
-	}
-}
 .hero {
-	background: url("@img/hero/bg-hero.jpg") center / cover no-repeat;
+	overflow: hidden;
+	position: relative;
+	&__bg {
+		animation: kenburns-top 0.9s ease-out both;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -5;
+		img {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+	// background: url("@img/hero/bg-hero.jpg") center / cover no-repeat;
+	// background: url("@img/hero/bg-hero.jpg") center / cover no-repeat;
 	@media (max-width: em(600)) {
 		background: #000 url("@img/hero/bg-hero.jpg") 15% 0% / cover no-repeat;
 	}
@@ -19,12 +34,17 @@
 	// .hero__footer
 	&__footer {
 	}
+
+	//? АНИМАЦИЯ - ОТКРЫТ>↓▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬↓
 	// .hero__subtitles
 	&__subtitles {
 		@include adaptiveValue("margin-bottom", 58, 56);
 		@include adaptiveValue("gap", 25, 9);
 		@media (max-width: em(600)) {
 			justify-content: end;
+		}
+		&._watcher-view {
+			animation: fade-in-left 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) 2.6s both;
 		}
 		// @media (max-width: $mobile) {
 		// 	justify-content: end;
@@ -44,12 +64,31 @@
 
 		// }
 	}
+	//? АНИМАЦИЯ - ОТКРЫТ>↓▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬↓
 	// .hero__titles
 	&__titles {
+		opacity: 0;
+		&._watcher-view {
+			opacity: 1;
+			animation: fade-in-left 1s cubic-bezier(0.39, 0.575, 0.565, 1) 1.9s both;
+		}
+		h1 {
+			&::before {
+				opacity: 0;
+			}
+		}
+		&._watcher-view h1 {
+			&::before {
+				opacity: 1;
+				animation: fade-in-left 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) 2.2s both;
+			}
+		}
+
 		display: flex;
 		flex-direction: column;
 		gap: toRem(10);
 		@include adaptiveValue("min-width", 600, 560, 0, 1290, 991.98);
+		transform: translateX(-50px);
 		@media (max-width: $tablet) {
 			min-width: auto;
 		}
@@ -58,11 +97,27 @@
 	&__textles {
 		flex-direction: column;
 		&::before {
+			vertical-align: bottom;
+			min-height: toRem(29);
+			max-width: toRem(29);
 			font-size: toRem(29);
 			@include adaptiveValue("margin-bottom", 22, 14);
 		}
+		&._watcher-view {
+			&::before {
+				animation: scale-in-center 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 3s both;
+			}
+		}
 		p {
 			@extend %grad-color;
+		}
+	}
+	.textles {
+		// .textles__item
+		&__item {
+			&._watcher-view {
+				animation: fade-in-left 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 2.9s both;
+			}
 		}
 	}
 	//*****************
@@ -82,24 +137,52 @@
 			@include adaptiveValue("font-size", 16, 12);
 			font-weight: 400;
 			line-height: 130%;
+			max-width: toRem(260);
 			@media (max-width: $tablet) {
 				align-self: start;
 				transform: translate(0px, 0px);
 			}
-			max-width: toRem(260);
-		}
-	}
-	//*****************
-	.textles {
-		// .textles__item
-		&__item {
 		}
 	}
 	//-----------------------------------------------------------
 	.footer-body {
 		@include adaptiveValue("padding-top", 80, 48);
 		@include adaptiveValue("padding-bottom", 68, 48);
-		background: rgba(0, 0, 0, 0.7);
+		position: relative;
+		z-index: 2;
+		background-size: 100% 0%;
+		transition: all 0.3s;
+		&__bg {
+			background: rgba(0, 0, 0, 0.7);
+			position: absolute;
+			z-index: -1;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			transform-origin: 0% 100%;
+			opacity: 0;
+			&._watcher-view {
+				animation: scale-in-ver-bottom 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1.3s both;
+			}
+		}
+		&._watcher-view {
+			.footer-body__item {
+				&:nth-child(1) {
+					animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 2s both;
+				}
+				&:nth-child(2) {
+					animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 2.2s both;
+				}
+				&:nth-child(3) {
+					animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 2.4s both;
+				}
+				&:nth-child(4) {
+					animation: fade-in-right 0.6s cubic-bezier(0.39, 0.575, 0.565, 1) 2.6s both;
+				}
+			}
+		}
+
 		// .footer-body__container
 		&__container {
 		}
